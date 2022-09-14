@@ -8,6 +8,15 @@ import { initDb, getDb, postDb, deleteDb, editDb } from './database';
 import Logo from '../images/logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
+
+//register service worker
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  })
+};
+
 window.addEventListener('load', function () {
   document.getElementById('logo').src = Logo;
   document.getElementById('bearThumbnail').src = Bear;
